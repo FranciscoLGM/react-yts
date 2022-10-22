@@ -1,0 +1,16 @@
+body {
+  line-height: 1.7rem;
+  font-family: "Poppins", sans-serif;
+}
+.img-details {
+  width: 360px;
+  min-height: 338px;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}

@@ -32,22 +32,22 @@ const Genres = ({ updateGenres, updatePageNumber }) => {
   ];
   return (
     <div className="accordion-item">
-      <h2 className="accordion-header" id="headingTwo">
+      <h2 className="accordion-header" id="headingThree">
         <button
           className="accordion-button collapsed"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#collapseTwo"
+          data-bs-target="#collapseThree"
           aria-expanded="false"
-          aria-controls="collapseTwo"
+          aria-controls="collapseThree"
         >
           Género
         </button>
       </h2>
       <div
-        id="collapseTwo"
+        id="collapseThree"
         className="accordion-collapse collapse"
-        aria-labelledby="headingTwo"
+        aria-labelledby="headingThree"
         data-bs-parent="#accordionExample"
       >
         <div className="accordion-body d-flex flex-wrap gap-2">

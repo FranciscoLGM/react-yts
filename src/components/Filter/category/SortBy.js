@@ -1,8 +1,15 @@
 import React from "react";
 import FilterBTN from "../FilterBTN";
 
-const Year = ({ updateYear, updatePageNumber }) => {
-  let year = ["Proximamente"];
+const SortBy = ({ updateSortBy, updatePageNumber }) => {
+  let sortBy = [
+    "title",
+    "year",
+    "rating",
+    "download_count",
+    "like_count",
+    "date_added",
+  ];
   return (
     <div className="accordion-item ">
       <h2 className="accordion-header" id="headingFour">
@@ -14,7 +21,7 @@ const Year = ({ updateYear, updatePageNumber }) => {
           aria-expanded="false"
           aria-controls="collapseFour"
         >
-          Año
+          Ordenar por
         </button>
       </h2>
       <div
@@ -24,14 +31,14 @@ const Year = ({ updateYear, updatePageNumber }) => {
         data-bs-parent="#accordionExample"
       >
         <div className="accordion-body d-flex flex-wrap gap-3">
-          {year.map((item, index) => {
+          {sortBy.map((item, index) => {
             return (
               <FilterBTN
-                name="sort_by"
+                name="sortBy"
                 index={index}
                 key={index}
                 updatePageNumber={updatePageNumber}
-                task={updateYear}
+                task={updateSortBy}
                 input={item}
               />
             );
@@ -42,4 +49,4 @@ const Year = ({ updateYear, updatePageNumber }) => {
   );
 };
 
-export default Year;
+export default SortBy;

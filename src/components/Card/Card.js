@@ -1,14 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 
-const Card = ({ results }) => {
+const Card = ({ page, results }) => {
   let display;
   if (results) {
     display = results.map((x) => {
       let { id, medium_cover_image, title, year, language } = x;
 
       return (
-        <div
+        <Link
+          style={{ textDecoration: "none" }}
+          to={`${page}${id}`}
           key={id}
           className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark"
         >
@@ -16,7 +19,7 @@ const Card = ({ results }) => {
             className={`${styles.card} d-flex flex-column justify-content-center`}
           >
             <img
-              className={`${styles.img} img-fluid`}
+              className={`${styles.img} img-fluid text-center`}
               src={medium_cover_image}
               alt={title}
             />
@@ -36,7 +39,7 @@ const Card = ({ results }) => {
               );
             }
           })()}
-        </div>
+        </Link>
       );
     });
   } else {

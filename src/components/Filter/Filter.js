@@ -2,7 +2,7 @@ import React from "react";
 import Genres from "./category/Genres";
 import Quality from "./category/Quality";
 import Rating from "./category/Rating";
-import Year from "./category/Year";
+import SortBy from "./category/SortBy";
 
 const Filter = ({
   pageNumber,
@@ -10,13 +10,13 @@ const Filter = ({
   updateGenres,
   updateQuality,
   updateRating,
-  updateYear,
+  updateSortBy,
 }) => {
   let clear = () => {
     updateGenres("");
     updateQuality("");
     updateRating("");
-    updateYear("");
+    updateSortBy("");
     updatePageNumber(1);
     window.location.reload(false);
   };
@@ -35,15 +35,18 @@ const Filter = ({
           updatePageNumber={updatePageNumber}
           updateQuality={updateQuality}
         />
-        <Genres
-          updatePageNumber={updatePageNumber}
-          updateGenres={updateGenres}
-        />
         <Rating
           updatePageNumber={updatePageNumber}
           updateRating={updateRating}
         />
-        <Year updatePageNumber={updatePageNumber} updateYear={updateYear} />
+        <Genres
+          updatePageNumber={updatePageNumber}
+          updateGenres={updateGenres}
+        />
+        <SortBy
+          updatePageNumber={updatePageNumber}
+          updateSortBy={updateSortBy}
+        />
       </div>
     </div>
   );

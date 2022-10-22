@@ -5,22 +5,22 @@ const Rating = ({ updateRating, updatePageNumber }) => {
   let rating = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <div className="accordion-item ">
-      <h2 className="accordion-header" id="headingThree">
+      <h2 className="accordion-header" id="headingTwo">
         <button
           className="accordion-button collapsed"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#collapseThree"
+          data-bs-target="#collapseTwo"
           aria-expanded="false"
-          aria-controls="collapseThree"
+          aria-controls="collapseTwo"
         >
           Clasificación
         </button>
       </h2>
       <div
-        id="collapseThree"
+        id="collapseTwo"
         className="accordion-collapse collapse"
-        aria-labelledby="headingThree"
+        aria-labelledby="headingTwo"
         data-bs-parent="#accordionExample"
       >
         <div className="accordion-body d-flex flex-wrap gap-3">
