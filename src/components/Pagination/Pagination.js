@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 
-const Pagination = ({ pageNumber, movieCount, updatePageNumber }) => {
+const Pagination = ({
+  pageNumber,
+  movieCount,
+  updatePageNumber,
+  pageLimit,
+}) => {
   let pageChange = (data) => {
     updatePageNumber(data.selected + 1);
   };
@@ -40,16 +45,16 @@ const Pagination = ({ pageNumber, movieCount, updatePageNumber }) => {
         `}
       </style>
       <ReactPaginate
-        className="pagination justify-content-center my-4 gap-4"
+        className="pagination justify-content-center my-4 gap-3"
         nextLabel="Next"
         forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
         previousLabel="Prev"
-        previousClassName="btn btn-primary fs-5 prev"
-        nextClassName="btn btn-primary fs-5 next"
+        previousClassName="btn btn-primary fs-6 my-auto prev"
+        nextClassName="btn btn-primary fs-6 my-auto next"
         activeClassName="active"
-        marginPagesDisplayed={width < 576 ? 1 : 2}
-        pageRangeDisplayed={width < 576 ? 1 : 2}
-        pageCount={movieCount}
+        marginPagesDisplayed={width < 576 ? 1 : 1}
+        pageRangeDisplayed={width < 576 ? 1 : 5}
+        pageCount={Math.ceil(movieCount / pageLimit)}
         onPageChange={pageChange}
         pageClassName="page-item"
         pageLinkClassName="page-link"

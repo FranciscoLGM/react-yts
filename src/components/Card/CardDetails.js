@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./CardDetails.css";
 
+// Componentes
+import CardSuggestions from "./CardSuggestions";
+
 const CardDetails = () => {
   let { id } = useParams();
   let [fetchedData, updateFetchedData] = useState([]);
@@ -36,42 +39,48 @@ const CardDetails = () => {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
       }}
+      className="pb-4"
     >
-      <div className="container d-flex flex-column flex-wrap justify-content-center text-white">
-        <div className="d-flex flex-row mt-5 gap-5">
-          <div className="grid">
-            <div className="g-col-6 img-details border border-3 border-light rounded">
-              <img className="img-fluid" src={large_cover_image} alt={title} />
+      <div className="container d-flex flex-column flex-wrap justify-content-center text-light">
+        <div className="d-flex flex-row mt-3 pt-3 gap-5">
+          <div className="col-4">
+            <div className="img-details border border-3 border-light rounded">
+              <img
+                className="img-fluid fs-5"
+                src={large_cover_image}
+                alt={title}
+              />
             </div>
           </div>
 
-          <div className="grid">
-            <div className="g-col-6">
-              <h1 className="fw-bold">{title}</h1>
-              <h2 className="fs-5 mb-2 mt-4">{`Año: ${year}`}</h2>
-              <h2 className="fs-5 mb-2">{`Idioma: ${String(
-                language
-              ).toUpperCase()}`}</h2>
-              <h2 className="fs-5 mb-2">{`Género: ${String(genres)
-                .split(",")
-                .join("/")}`}</h2>
-              <h2 className="fs-5 mb-2">{`Clasificación: ${rating}`}</h2>
-              <h2 className="fs-5 mb-5">{`Likes: ${like_count}`}</h2>
-              <h2 className="fs-5 mb-2">Disponible en:</h2>
-              <div>
-                <ul className="d-flex flex-wrap gap-3">
-                  {torrents?.map((torrent) => (
-                    <li>
-                      <a className="btn btn-dark mt-2" href={torrent.url}>
-                        {`${torrent.quality}.${
-                          torrent.type.charAt(0).toUpperCase() +
-                          torrent.type.slice(1)
-                        }`}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="col-4">
+            <h1 className="fw-bold">{title}</h1>
+            <h2 className="fs-5 mb-2 mt-4">{`Año: ${year}`}</h2>
+            <h2 className="fs-5 mb-2">{`Idioma: ${language?.toUpperCase()}`}</h2>
+            <h2 className="fs-5 mb-2">{`Género: ${String(genres)
+              .split(",")
+              .join("/")}`}</h2>
+            <h2 className="fs-5 mb-2">{`Clasificación: ${rating}`}</h2>
+            <h2 className="fs-5 mb-5">{`Likes: ${like_count}`}</h2>
+            <h2 className="fs-5 mb-2">Disponible en:</h2>
+            <div>
+              <ul className="d-flex flex-wrap gap-3">
+                {torrents?.map((torrent) => (
+                  <li>
+                    <a className="btn btn-dark mt-2" href={torrent.url}>
+                      {`${torrent.quality}.${
+                        torrent.type.charAt(0).toUpperCase() +
+                        torrent.type.slice(1)
+                      }`}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="col-4">
+            <div className="row">
+              <CardSuggestions />
             </div>
           </div>
         </div>

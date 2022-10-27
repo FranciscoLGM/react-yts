@@ -2,7 +2,7 @@ import React from "react";
 import FilterBTN from "../FilterBTN";
 
 const Rating = ({ updateRating, updatePageNumber }) => {
-  let rating = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  let rating = [9, 8, 7, 6, 5, 4, 3, 2, 1];
   return (
     <div className="accordion-item ">
       <h2 className="accordion-header" id="headingTwo">
