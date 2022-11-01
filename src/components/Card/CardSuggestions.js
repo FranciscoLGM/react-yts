@@ -23,7 +23,7 @@ const CardSuggestions = () => {
         <Link
           style={{ textDecoration: "none" }}
           to={`/${movie.id}`}
-          className="col-lg-6 col-md-6 col-sm-6 col-12 mb-4 position-relative text-withe"
+          className="col-lg-6 col-md-6 col-sm-6 col-6 mb-4 position-relative text-withe"
         >
           <div
             className={`${styles.suggestions} d-flex flex-column justify-content-center`}

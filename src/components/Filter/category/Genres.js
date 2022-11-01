@@ -3,32 +3,32 @@ import FilterBTN from "../FilterBTN";
 
 const Genres = ({ updateGenres, updatePageNumber }) => {
   let genres = [
-    "Action",
-    "Adventure",
-    "Animation",
-    "Biography",
-    "Comedy",
-    "Crime",
-    "Documentary",
+    "Acción",
+    "Aventura",
+    "Animación",
+    "Biografía",
+    "Comedia",
+    "Crimen",
+    "Documental",
     "Drama",
-    "Family",
-    "Fantasy",
-    "film-noir",
-    "game-show",
-    "History",
-    "Horror",
-    "Music",
+    "Familia",
+    "Fantasía",
+    "Cine negro",
+    "Concurso",
+    "Historia",
+    "Terror",
+    "Música",
     "Musical",
-    "Mystery",
-    "News",
-    "reality-tv",
+    "Misterio",
+    "Noticias",
+    "Reality",
     "Romance",
-    "Sci-Fi",
-    "sport",
-    "talk-show",
-    "Thriller",
-    "War",
-    "Western",
+    "Ciencia Ficción",
+    "Deporte",
+    "Tertulia",
+    "Suspenso",
+    "Bélico",
+    "Del oeste",
   ];
   return (
     <div className="accordion-item">
@@ -51,14 +51,14 @@ const Genres = ({ updateGenres, updatePageNumber }) => {
         data-bs-parent="#accordionExample"
       >
         <div className="accordion-body d-flex flex-wrap gap-2">
-          {genres.map((item, index) => (
+          {genres.sort().map((item, index) => (
             <FilterBTN
               key={index}
               index={index}
               name="genres"
               task={updateGenres}
               updatePageNumber={updatePageNumber}
-              input={item.charAt(0).toUpperCase() + item.slice(1)}
+              input={item}
             />
           ))}
         </div>

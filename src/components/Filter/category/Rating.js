@@ -32,7 +32,7 @@ const Rating = ({ updateRating, updatePageNumber }) => {
                 key={index}
                 updatePageNumber={updatePageNumber}
                 task={updateRating}
-                input={item}
+                input={`${item}+`}
               />
             );
           })}

@@ -3,12 +3,12 @@ import FilterBTN from "../FilterBTN";
 
 const SortBy = ({ updateSortBy, updatePageNumber }) => {
   let sortBy = [
-    "title",
-    "year",
-    "rating",
-    "download_count",
-    "like_count",
-    "date_added",
+    "Año",
+    "Likes",
+    "Título",
+    "Descargas",
+    "Calificación",
+    "Fecha de subida",
   ];
   return (
     <div className="accordion-item ">

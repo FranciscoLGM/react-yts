@@ -49,8 +49,8 @@ const Footer = () => {
         </section>
         <article>
           <p className="fs-6 pt-3 text-center">
-            Codeado con ❤️ - Copyright © {year.getFullYear()} - Todos los
-            derechos reservados
+            Codeado con ❤️ - Copyright © {year.getFullYear()} - Derechos
+            reservados - Fuente: YTS
           </p>
         </article>
       </section>

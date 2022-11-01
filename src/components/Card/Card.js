@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
+import noPoster from "../../assets/images/noposter.svg";
 
 const Card = ({ page, results }) => {
   let display;
@@ -20,7 +21,7 @@ const Card = ({ page, results }) => {
           >
             <img
               className={`${styles.img} img-fluid text-center`}
-              src={medium_cover_image}
+              src={medium_cover_image || noPoster}
               alt={title}
             />
           </div>
@@ -43,7 +44,7 @@ const Card = ({ page, results }) => {
       );
     });
   } else {
-    display = "No Characters Found :/";
+    display = "Películas no encontradas 😓";
   }
 
   return <>{display}</>;

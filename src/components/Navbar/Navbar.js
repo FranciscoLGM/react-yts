@@ -34,7 +34,7 @@ const Navbar = () => {
           id="navbarNavAltMarkup"
         >
           <div className="navbar-nav fs-5">
-            <NavLink to="/" activeClasName="active" className="nav-link">
+            <NavLink to="/" className="nav-link" aria-current="page">
               Home
             </NavLink>
             {/* <NavLink to="/series" activeClasName="active" className="nav-link">
