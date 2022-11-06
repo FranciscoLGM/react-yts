@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
         <Link to="/" className="navbar-brand fs-3">
-          Películas <span className="text-primary">WiKi</span>
+          Películas <span className="text-primary">YTS</span>
         </Link>
         <style jsx>{`
           button[aria-expanded="false"] > .close {

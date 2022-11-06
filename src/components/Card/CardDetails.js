@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./CardDetails.css";
 import defaultUser from "../../assets/images/default-user.png";
 import noPoster from "../../assets/images/noposter.svg";
-
+import notFound from "../../assets/images/notfound.jpg";
 // Componentes
 import CardSuggestions from "./CardSuggestions";
 
@@ -50,18 +50,16 @@ const CardDetails = () => {
       className="pb-4"
     >
       <div className="container d-flex flex-column flex-wrap justify-content-center text-light text-shadow">
-        <div className="d-flex flex-row mt-3 pt-3 gap-5">
-          <div className="col-4">
-            <div className="img-details border border-3 border-light rounded">
-              <img
-                className="img-fluid fs-5"
-                src={large_cover_image || noPoster}
-                alt={title}
-              />
-            </div>
+        <div className="grid-movie mt-3 pt-3 gap-5">
+          <div className="img-details border border-3 border-light rounded">
+            <img
+              className="img-fluid fs-5"
+              src={large_cover_image || noPoster}
+              alt={title}
+            />
           </div>
 
-          <div className="col-4">
+          <div>
             <h1 className="fw-bold">{title}</h1>
             <h2 className="fs-5 mb-2 mt-4">{`Año: ${year}`}</h2>
             <h2 className="fs-5 mb-2">{`Idioma: ${language?.toUpperCase()}`}</h2>
@@ -91,89 +89,82 @@ const CardDetails = () => {
               </ul>
             </div>
           </div>
-          <div className="container col-3">
-            <div className="row">
-              <CardSuggestions />
-            </div>
+
+          <div className="row card-suggestion">
+            <CardSuggestions />
           </div>
         </div>
 
-        <div className="d-flex gap-5">
-          <div className="grid mt-5">
+        <div className="grid-description gap-5 mt-5">
+          <div>
             <h2 className="pb-3 pt-3 fw-bold">Trailer</h2>
-            <div className="g-col-6">
+            <div className="trailer">
               <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${yt_trailer_code}`}
+                src={(() => {
+                  return yt_trailer_code?.length > 1
+                    ? `https://www.youtube.com/embed/${yt_trailer_code}`
+                    : notFound;
+                })()}
                 title="YouTube video player"
                 frameborder="0"
                 allowfullscreen="true"
               ></iframe>
             </div>
           </div>
-          <div className="grid">
-            <div className="g-col-6 mt-5">
-              <h2 className="pb-3 pt-3 fw-bold">Imágenes</h2>
-              <div className="d-flex flex-wrap justify-content-center align-items-center">
-                <div className="col-6 ">
-                  <img
-                    className="img-fluid pe-1 pb-1 rounded"
-                    src={large_screenshot_image1}
-                    alt=""
-                  />
-                </div>
-                <div className="col-6">
-                  <img
-                    className="img-fluid pb-1 rounded"
-                    src={large_screenshot_image2}
-                    alt=""
-                  />
-                </div>
-                <div className="col-10">
-                  <img
-                    className="img-fluid rounded"
-                    src={large_screenshot_image3}
-                    alt=""
-                  />
-                </div>
+
+          <div>
+            <h2 className="pb-3 pt-3 fw-bold">Imágenes</h2>
+            <div className="d-flex flex-wrap justify-content-center align-items-center">
+              <div className="col-lg-6 col-md-10 col-sm-10 col-11">
+                <img
+                  className="img-fluid pe-1 pb-1 rounded"
+                  src={large_screenshot_image1}
+                  alt=""
+                />
+              </div>
+              <div className="col-lg-6 col-md-10 col-sm-10 col-11">
+                <img
+                  className="img-fluid pb-1 rounded"
+                  src={large_screenshot_image2}
+                  alt=""
+                />
+              </div>
+              <div className="col-lg-10 col-md-10 col-sm-10 col-11">
+                <img
+                  className="img-fluid rounded"
+                  src={large_screenshot_image3}
+                  alt=""
+                />
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="d-flex gap-5">
-          <div className="col-6">
-            <div className="mt-5">
-              <h2 className="pb-3 pt-3 fw-bold">Argumento</h2>
-              <p>{description_full}</p>
-            </div>
+          <div>
+            <h2 className="pb-3 pt-3 fw-bold">Argumento</h2>
+            <p className="argument">{description_full}</p>
           </div>
-          <div className="col-6">
-            <div className="mt-5">
-              <h2 className="pb-3 pt-3 fw-bold">Reparto principal</h2>
-              <>
-                {cast?.map((cast) => (
-                  <div className="d-flex align-items-center gap-2">
-                    <img
-                      className="img-fluid rounded-circle border border-light cast mb-2"
-                      src={cast.url_small_image || defaultUser}
-                      alt=""
-                    />
-                    <p className="fs-6">
-                      <span className="text-secondary fw-light">
-                        {cast.name}
-                      </span>
-                      {(() => {
-                        return cast.character_name.length > 1
-                          ? ` como ${cast.character_name}`
-                          : "";
-                      })()}
-                    </p>
-                  </div>
-                ))}
-              </>
-            </div>
+
+          <div>
+            <h2 className="pb-3 pt-3 fw-bold">Reparto principal</h2>
+            <>
+              {cast?.map((cast) => (
+                <div className="d-flex flex-wrap align-items-center gap-2">
+                  <img
+                    className="img-fluid rounded-circle border border-light cast mb-2"
+                    src={cast.url_small_image || defaultUser}
+                    alt=""
+                  />
+                  <p className="fs-6">
+                    <span className="text-secondary fw-light">{cast.name}</span>
+                    {(() => {
+                      return cast.character_name.length > 1
+                        ? ` como ${cast.character_name}`
+                        : "";
+                    })()}
+                  </p>
+                </div>
+              ))}
+            </>
           </div>
         </div>
       </div>
